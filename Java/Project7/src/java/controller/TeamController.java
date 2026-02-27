@@ -6,12 +6,15 @@
 package controller;
 
 import dal.MembersInTeamDAO;
+import dal.TeamDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.*;
+import model.*;
 
 /**
  *
@@ -55,15 +58,21 @@ public class TeamController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //processRequest(request, response);
-        String email = request.getParameter("id");
+        String email = (String)request.getSession().getAttribute("email");
         MembersInTeamDAO mitd = new MembersInTeamDAO();
         if(mitd.checkMemberInTeam(email)){ 
             // it's true that mean this member is on a team
             request.setAttribute("check", "true");
+            TeamDAO td = new TeamDAO();
+            Team team = td.getTeamByEmail(email);
+            request.setAttribute("team", team);
+            List<Student> stList = mitd.getAllMember(team.getId());
+            request.setAttribute("memberList", stList);
         }else{
             request.setAttribute("check", "false");
         }
-        request.getRequestDispatcher("").forward(request, response);
+        request.setAttribute("email", email);
+        request.getRequestDispatcher("/views/role/student/Team.jsp").forward(request, response);
     } 
 
     /** 

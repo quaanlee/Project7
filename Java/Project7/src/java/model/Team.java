@@ -8,18 +8,15 @@ package model;
  *
  * @author LENOVO
  */
-public class Person {
-    protected String id;
-    protected String name;
-    protected String email;
+public class Team {
+    private String id;
+    private String name;
+    private String leaderId;
 
-    public Person() {
-    }
-
-    public Person(String id, String name, String email) {
+    public Team(String id, String name, String leaderId) {
         this.id = id;
         this.name = name;
-        this.email = email;
+        this.leaderId = leaderId;
     }
 
     public String getId() {
@@ -38,12 +35,14 @@ public class Person {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLeaderId() {
+        return leaderId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLeaderId(String leaderId) {
+        this.leaderId = leaderId;
     }
-
+    
+    
+    
 }

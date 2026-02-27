@@ -12,11 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%String email = (String)request.getAttribute("email");%>
+        <%String email = (String)request.getSession().getAttribute("email");%>
         <ol>
-            <li><a href="team" id=<%(email != null) ? email : ""%>>Team</a></li>
+            <li><a href="team">Team</a></li>
             <li><a href="topiclist">List Topic</a></li>
-            <li><a href="topiclist">Register Topic</a></li>
             <li><a href="url">Progress</a></li>
             <li><a href="url">Mark Report</a></li>
         </ol>

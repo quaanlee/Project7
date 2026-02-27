@@ -2,50 +2,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller;
 
 import dal.MembersInTeamDAO;
+import dal.StudentDAO;
+import dal.TeamDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Scanner;
+import model.*;
 
 /**
  *
  * @author LENOVO
  */
 public class CreateTeamController extends HttpServlet {
-   
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddTeamController</title>");  
+            out.println("<title>Servlet AddTeamController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddTeamController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AddTeamController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -53,21 +59,23 @@ public class CreateTeamController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         //processRequest(request, response);
-        String email = request.getParameter("id");
-        MembersInTeamDAO mitd = new MembersInTeamDAO();
-        if(mitd.checkMemberInTeam(email)){ 
-            // it's true that mean this member is on a team
-            request.setAttribute("check", "true");
-        }else{
-            request.setAttribute("check", "false");
+        String email = (String) request.getSession().getAttribute("email");
+        if (email == null) {
+            response.sendRedirect("index.jsp");
+        } else {
+            StudentDAO stDao = new StudentDAO();
+            Person student = stDao.getStudentByEmail(email);
+            request.setAttribute("student", student);
+            request.getRequestDispatcher("views/role/student/CreateTeam.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("").forward(request, response);
-    } 
 
-    /** 
+    }
+
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -75,12 +83,33 @@ public class CreateTeamController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException {
+        //processRequest(request, response);
+        String nameTeam = request.getParameter("teamName");
+        if (nameTeam == null || nameTeam.isBlank()) {
+            request.setAttribute("checkEmpty", "");
+            request.getRequestDispatcher("views/role/student/CreateTeam.jsp").forward(request, response);
+        } else {
+            String email = (String) request.getSession().getAttribute("email");
+            StudentDAO stDao = new StudentDAO();
+            Person st = stDao.getStudentByEmail(email);
+            TeamDAO teamDao = new TeamDAO();
+            Team team = teamDao.getLastTeam();
+            String teamId = team.getId();
+            int stt = Integer.parseInt(teamId.substring(1)) + 1;
+            teamId = "T" + ((stt < 10) ? "0" + stt : stt);
+            request.setAttribute("teamId", teamId);
+            request.setAttribute("teamName", nameTeam);
+            teamDao.addTeam(new Team(teamId, nameTeam, st.getId()));
+            MembersInTeamDAO mitd = new MembersInTeamDAO();
+            mitd.addMember(st.getId(), teamId);
+            request.getRequestDispatcher("views/role/student/ComfimeCreateTeam.jsp").forward(request, response);
+        }
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override

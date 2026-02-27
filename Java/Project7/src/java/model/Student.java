@@ -13,8 +13,8 @@ public class Student extends Person {
     private String className;
     private String major;
 
-    public Student(String className, String major, String name, String email) {
-        super(name, email);
+    public Student(String className, String major, String id, String name, String email) {
+        super(id, name, email);
         this.className = className;
         this.major = major;
     }

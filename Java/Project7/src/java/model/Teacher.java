@@ -10,7 +10,12 @@ package model;
  */
 public class Teacher extends Person {
 
-    public Teacher(String name, String email, String password) {
-        super(name, email);
+    public Teacher() {
     }
+
+    public Teacher(String id, String name, String email) {
+        super(id, name, email);
+    }
+
+    
 }
