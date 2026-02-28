@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*" %>
+<%@page import="dal.*" %>
 <%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -34,30 +35,61 @@
         </div>
         <%
             } else {
+                boolean isLeader = (boolean)request.getAttribute("checkLeader");
                 Team team = (Team)request.getAttribute("team");
                 List<Student> memberList = (List<Student>)request.getAttribute("memberList");
         %>
+        <%if(isLeader){%>
+        <form action="action">
+            <label for="stId">StudentID</label>
+            <input type="text" name="stID" id="stId">
+            <input type="submit" value="Add">
+        </form>
+        <%}%>
         <h1>Team : <%=team.getName()%></h1>
         <h3>TeamID: <%=team.getId()%></h3>
+        <h3>Number of member: <%=memberList.size()%></h3>
         <table>
             <tr>
+                <th>STT</th>
                 <th>StudentId</th>
                 <th>StudentName</th>
                 <th>Class</th>
                 <th>Major</th>
                 <th>Email</th>
+                <th>Role</th>
+                <%if(isLeader){%>
+                <th>Action</th>
+                <%}%>
             </tr>
             <%
+                TeamDAO td = new TeamDAO();
+                int stt = 1;
                 for(Student member : memberList){
+                    boolean checkLeader = td.isLeader(member.getEmail());
             %>
             <tr>
+                <td><%=stt%></td>
                 <td><%=member.getId()%></td>
                 <td><%=member.getName()%></td>
                 <td><%=member.getClassName()%></td>
                 <td><%=member.getMajor()%></td>
                 <td><%=member.getEmail()%></td>
+                <td><%=(checkLeader) ? "Leader" : ""%></td>
+                <%if(isLeader){%>
+                <td>
+                    <%
+                        if(!checkLeader){
+                        %>
+                        <a href="deleteMember?id=<%=member.getId()%>"><button>Delete</button></a>
+                        <%
+                        }
+                    %>
+                </td>
+                <%}%>
             </tr>
             <%
+                stt++;
                 }
             %>
         </table>        

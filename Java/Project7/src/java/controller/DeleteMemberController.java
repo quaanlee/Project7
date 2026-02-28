@@ -5,22 +5,20 @@
 
 package controller;
 
-import dal.MembersInTeamDAO;
-import dal.TeamDAO;
+import dal.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.*;
 import model.*;
 
 /**
  *
  * @author LENOVO
  */
-public class TeamController extends HttpServlet {
+public class DeleteMemberController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,10 +35,10 @@ public class TeamController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TeamController</title>");  
+            out.println("<title>Servlet DeleteMemberController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TeamController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet DeleteMemberController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,26 +56,12 @@ public class TeamController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //processRequest(request, response);
-        String email = (String)request.getSession().getAttribute("email");
-        MembersInTeamDAO mitd = new MembersInTeamDAO();
-        if(mitd.checkMemberInTeam(email)){ 
-            // it's true that mean this member is on a team
-            request.setAttribute("check", "true");
-            TeamDAO td = new TeamDAO();
-            //
-            Team team = td.getTeamByEmail(email);
-            request.setAttribute("team", team);
-            //
-            List<Student> stList = mitd.getAllMember(team.getId());
-            request.setAttribute("memberList", stList);
-            //
-            boolean checkLeader = td.isLeader(email);
-            request.setAttribute("checkLeader", checkLeader);
-        }else{
-            request.setAttribute("check", "false");
-        }
-        request.setAttribute("email", email);
-        request.getRequestDispatcher("/views/role/student/Team.jsp").forward(request, response);
+        String stId = request.getParameter("id");
+        System.out.println(stId);
+        StudentDAO stDao = new StudentDAO();
+        Student st = stDao.getStudentByID(stId);
+        request.setAttribute("student", st);
+        request.getRequestDispatcher("views/role/student/ComfimeDeleteMember.jsp").forward(request, response);
     } 
 
     /** 
@@ -90,7 +74,18 @@ public class TeamController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String stId = request.getParameter("stId");
+        StudentDAO stDao = new StudentDAO();
+        Student st = stDao.getStudentByID(stId);
+        request.setAttribute("student", st);
+        MembersInTeamDAO mitd = new MembersInTeamDAO();
+        if(mitd.deleteMember(stId)){
+            request.setAttribute("check", 1);
+        } else {
+            request.setAttribute("check", 0);
+        }
+        request.getRequestDispatcher("views/role/student/ComfimeDeleteMember.jsp").forward(request, response);
     }
 
     /** 

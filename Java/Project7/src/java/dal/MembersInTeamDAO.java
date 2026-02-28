@@ -50,7 +50,20 @@ public class MembersInTeamDAO extends DBContext {
         }
         return false;
     }
+    public boolean deleteMember(String id) {
+        try {
+            String strSQL = "delete MembersInTeam where studentId=?";
 
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, id);
+            if (stm.executeUpdate() != 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
     public List getAllMember(String teamId) {
         List<Student> studentList = new ArrayList<>();
         try {
