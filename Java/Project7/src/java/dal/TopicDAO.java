@@ -60,4 +60,26 @@ public class TopicDAO extends DBContext {
         }
         return topicList;
     }
+    
+    public boolean setTopicStatus(String topicId){
+        RegisterDAO reDao = new RegisterDAO();
+        String status = "";
+        if(reDao.checkFull(topicId)){
+            status = "Received";
+        } else {
+            status = "Still Receiving";
+        }
+        try {
+            String strSQL = " update Topics set topicStatus = ? where topicId = ?";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, status);
+            stm.setString(2, topicId);
+            if(stm.executeUpdate() != 0){
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }

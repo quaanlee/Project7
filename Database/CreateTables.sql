@@ -1,6 +1,8 @@
 use Project7
 go
-drop table if exists Progresses
+drop table if exists FinalMark
+drop table if exists MarkTeam
+drop table if exists Reports
 drop table if exists Registers
 drop table if exists Topics
 drop table if exists MembersInTeam
@@ -58,14 +60,95 @@ create table Registers (
 	registerStatus varchar(20) default 'Awaiting Approval'
 	check (registerStatus in ('Awaiting Approval', 'Approved', 'Rejected'))
 );
-create table Progresses (
-	progressId varchar(20) primary key,
+create table Reports (
 	teamId varchar(20) references Teams(teamId),
-	progressContent nvarchar(500),
-	submitDate datetime
+	category varchar(200) check (category in ('Proposal', 'Report 1', 'Report 2', 'FinalReport')),
+	primary key (teamId, category),
+	filePath varchar(200),
+	submitDate datetime,
+	deadline datetime
+);
+
+create table MarkTeam (
+	teamId varchar(20) primary key references Teams(teamId),
+	proposal decimal(3, 1),
+	report_1 decimal(3, 1),
+	report_2 decimal(3, 1),
+	finalReport decimal(3, 1),
+	total as round((proposal + report_1 + report_2) * 0.1 + finalReport * 0.2, 1)
+);
+
+create table FinalMark (
+	studentId varchar(20) primary key,
+	foreign key (studentId) references Students(studentId),
+	teamId varchar(20) references Teams(teamId),
+	markPersonal decimal(3, 1),
+	total decimal(3, 1),
 );
 
 GO
+create trigger trg_insert_team 
+on Teams
+after insert
+as begin
+	insert into MembersInTeam (studentId, teamId) 
+	select i.leaderId, i.teamId
+	from inserted i
+
+	insert into Reports (teamId, category, filePath, submitDate, deadline)
+	select i.teamId,r.category, null, getdate(), getdate()
+	from inserted i
+	cross join (
+		select 'Proposal' as category
+		union
+		select 'Report 1'
+		union
+		select 'Report 2'
+		union
+		select 'FinalReport'
+	)r
+
+	insert into MarkTeam (teamId, proposal, report_1, report_2, finalReport)
+	select i.teamId, 0, 0, 0, 0
+	from inserted i
+end;
+go
+create trigger trg_insert_member
+on MembersInTeam
+after insert
+as begin
+	insert into FinalMark (studentId, teamId, markPersonal, total)
+	select i.studentId, i.teamId, 0, 0
+	from inserted i
+end;
+go
+create trigger trg_delete_member
+on MembersInTeam
+after delete
+as begin
+	delete FinalMark
+	from FinalMark fm inner join deleted d on d.studentId = fm.studentId
+end;
+go
+create trigger trg_update_markTeam
+on MarkTeam
+after update
+as begin
+	update FinalMark set total = markPersonal * 0.5 + i.total * 0.5
+	from FinalMark f
+	inner join inserted i on i.teamId = f.teamId
+end;
+go
+create trigger trg_update_finalMark
+on FinalMark
+after update
+as begin
+	update FinalMark set total = i.markPersonal * 0.5 + mt.total * 0.5
+	from FinalMark fm
+	inner join inserted i on i.teamId = fm.teamId
+	inner join MarkTeam mt on i.teamId = mt.teamId
+end;
+go
 -- =====================
 -- INSERT ROLES
 -- =====================
@@ -114,18 +197,20 @@ INSERT INTO Teams VALUES
 -- =====================
 -- INSERT MembersInTeam
 -- =====================
+/*
 INSERT INTO MembersInTeam VALUES
 ('S01', 'T01'),
 ('S02', 'T02'),
 ('S03', 'T02'),
-('S04', 'T03');
+('S04', 'T03'); 
+*/
 
 -- =====================
 -- INSERT TOPICS
 -- =====================
 INSERT INTO Topics VALUES
 ('TP01', 'AI Research System', 'GV01', 'Still Receiving'),
-('TP02', 'E-Learning Website', 'GV02', 'Received');
+('TP02', 'E-Learning Website', 'GV02', 'Still Receiving');
 
 -- =====================
 -- INSERT REGISTERS
@@ -135,8 +220,3 @@ INSERT INTO Registers VALUES
 ('R02', 'T02', 'TP02', GETDATE(), 'Awaiting Approval');
 
 -- =====================
--- INSERT PROGRESSES
--- =====================
-INSERT INTO Progresses VALUES
-('P01', 'T01', N'Completed database design and ERD.', GETDATE()),
-('P02', 'T02', N'Finished UI and login function.', GETDATE());

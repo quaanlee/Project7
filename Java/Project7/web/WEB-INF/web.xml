@@ -6,23 +6,47 @@
     </servlet>
     <servlet>
         <servlet-name>TopicListController</servlet-name>
-        <servlet-class>controller.TopicListController</servlet-class>
+        <servlet-class>controller.student.register.TopicListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterController</servlet-name>
-        <servlet-class>controller.RegisterController</servlet-class>
+        <servlet-class>controller.student.register.RegisterController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CreateTeamController</servlet-name>
-        <servlet-class>controller.CreateTeamController</servlet-class>
+        <servlet-class>controller.student.team.CreateTeamController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TeamController</servlet-name>
-        <servlet-class>controller.TeamController</servlet-class>
+        <servlet-class>controller.student.team.TeamController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteMemberController</servlet-name>
-        <servlet-class>controller.DeleteMemberController</servlet-class>
+        <servlet-class>controller.student.team.DeleteMemberController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FindStudentController</servlet-name>
+        <servlet-class>controller.student.team.FindStudentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMemberController</servlet-name>
+        <servlet-class>controller.student.team.AddMemberController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LeaveTeamController</servlet-name>
+        <servlet-class>controller.student.team.LeaveTeamController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelController</servlet-name>
+        <servlet-class>controller.student.register.CancelController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssignmentController</servlet-name>
+        <servlet-class>controller.student.assignment.AssignmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MarkReport</servlet-name>
+        <servlet-class>controller.student.mark.MarkReport</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -47,5 +71,29 @@
     <servlet-mapping>
         <servlet-name>DeleteMemberController</servlet-name>
         <url-pattern>/deleteMember</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindStudentController</servlet-name>
+        <url-pattern>/findStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMemberController</servlet-name>
+        <url-pattern>/addMember</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LeaveTeamController</servlet-name>
+        <url-pattern>/leaveTeam</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelController</servlet-name>
+        <url-pattern>/cancel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssignmentController</servlet-name>
+        <url-pattern>/assignmentC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarkReport</servlet-name>
+        <url-pattern>/markReport</url-pattern>
     </servlet-mapping>
 </web-app>

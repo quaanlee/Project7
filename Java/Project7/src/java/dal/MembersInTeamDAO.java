@@ -37,7 +37,7 @@ public class MembersInTeamDAO extends DBContext {
 
     public boolean addMember(String studentId, String teamId) {
         try {
-            String strSQL = "insert into MembersInTeam values (?, ?)";
+            String strSQL = "insert into MembersInTeam(studentId, teamId) values (?, ?)";
 
             stm = connection.prepareStatement(strSQL);
             stm.setString(1, studentId);
@@ -50,12 +50,27 @@ public class MembersInTeamDAO extends DBContext {
         }
         return false;
     }
-    public boolean deleteMember(String id) {
+    public boolean deleteMemberID(String id) {
         try {
             String strSQL = "delete MembersInTeam where studentId=?";
 
             stm = connection.prepareStatement(strSQL);
             stm.setString(1, id);
+            if (stm.executeUpdate() != 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+    public boolean deleteMemberByEmail(String email) {
+        try {
+            String strSQL = "delete MembersInTeam where studentId="
+                    + "(select studentId from Students where email = ?)";
+
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, email);
             if (stm.executeUpdate() != 0) {
                 return true;
             }

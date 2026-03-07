@@ -5,6 +5,7 @@
 package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.*;
 import model.*;
 /**
  *
@@ -55,5 +56,26 @@ public class StudentDAO extends DBContext{
         }
         return student;
     }
-    
+    public List getStudentsById(String id){
+        List<Student> stList = new ArrayList<>();
+        try {
+            String strSQL = "select * from Students where studentId like ?";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, '%'+id+'%');
+            rs = stm.executeQuery();
+            while(rs.next()){
+                String stId = rs.getString("studentId");
+                String stName = rs.getString("studentName");
+                String stClass = rs.getString("class");
+                String stMajor = rs.getString("major");
+                String stEmail = rs.getString("email");
+                Student student = new Student(stClass, stMajor, stId, stName, stEmail);
+                stList.add(student);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("hello");
+        }
+        return stList;
+    }
 }

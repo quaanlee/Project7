@@ -6,6 +6,7 @@ package controller;
 
 import dal.AccountDAO;
 import dal.RoleDAO;
+import dal.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -66,6 +67,8 @@ public class LoginController extends HttpServlet {
         if (account == null) {
             response.sendRedirect("index.jsp");
         } else {
+            StudentDAO stDao = new StudentDAO();
+            request.setAttribute("student", stDao.getStudentByEmail(email));
             RoleDAO roleDao = new RoleDAO();
             Role role = roleDao.getRoleById(account.getRoleId());
             String roleName = role.getRoleName();
@@ -103,6 +106,8 @@ public class LoginController extends HttpServlet {
             if (!password.equals(account.getPassword())) {
                 request.setAttribute("notification", "Password is wrong, try again");
             } else {
+                StudentDAO stDao = new StudentDAO();
+                request.setAttribute("student", stDao.getStudentByEmail(email));
                 RoleDAO roleDao = new RoleDAO();
                 Role role = roleDao.getRoleById(account.getRoleId());
                 String roleName = role.getRoleName();
