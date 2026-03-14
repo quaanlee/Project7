@@ -6,6 +6,7 @@
 package controller.student.assignment;
 
 import dal.AccountDAO;
+import dal.RegisterDAO;
 import dal.ReportDAO;
 import dal.RoleDAO;
 import dal.TeamDAO;
@@ -70,8 +71,10 @@ public class AssignmentController extends HttpServlet {
         } else {
             TeamDAO td = new TeamDAO();
             Team team = td.getTeamByEmail(email);
-            if(team == null){
-                response.sendRedirect("team");
+            
+            if(team == null || !(new RegisterDAO().checkRegisterStatus(team.getId(), "Approved"))){
+                request.setAttribute("noneTopic", 1);
+                request.getRequestDispatcher("views/role/student/assignment/AssignmentView.jsp").forward(request, response);
                 return;
             }
             ReportDAO rd = new ReportDAO();

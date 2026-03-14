@@ -8,6 +8,7 @@ package controller.student.mark;
 import dal.AccountDAO;
 import dal.FinalMarkDAO;
 import dal.MarkTeamDAO;
+import dal.RegisterDAO;
 import dal.ReportDAO;
 import dal.TeamDAO;
 import java.io.IOException;
@@ -70,8 +71,9 @@ public class MarkReport extends HttpServlet {
         } else {
             TeamDAO td = new TeamDAO();
             Team team = td.getTeamByEmail(email);
-            if(team == null){
-                response.sendRedirect("team");
+            if(team == null || !(new RegisterDAO().checkRegisterStatus(team.getId(), "Approved"))){
+                
+                request.getRequestDispatcher("views/role/student/mark/MarkReport.jsp").forward(request, response);
                 return;
             }
             MarkTeamDAO mtd = new MarkTeamDAO();

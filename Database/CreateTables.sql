@@ -94,32 +94,21 @@ as begin
 	insert into MembersInTeam (studentId, teamId) 
 	select i.leaderId, i.teamId
 	from inserted i
-
-	insert into Reports (teamId, category, filePath, submitDate, deadline)
-	select i.teamId,r.category, null, getdate(), getdate()
-	from inserted i
-	cross join (
-		select 'Proposal' as category
-		union
-		select 'Report 1'
-		union
-		select 'Report 2'
-		union
-		select 'FinalReport'
-	)r
-
-	insert into MarkTeam (teamId, proposal, report_1, report_2, finalReport)
-	select i.teamId, 0, 0, 0, 0
-	from inserted i
 end;
 go
 create trigger trg_insert_member
 on MembersInTeam
 after insert
 as begin
-	insert into FinalMark (studentId, teamId, markPersonal, total)
-	select i.studentId, i.teamId, 0, 0
-	from inserted i
+	if exists 
+	(select 1 from inserted i
+	inner join Registers r on r.teamId = i.teamId
+	where r.registerStatus = 'Approved')
+	begin
+		insert into FinalMark (studentId, teamId, markPersonal, total)
+		select i.studentId, i.teamId, null, null
+		from inserted i
+	end;
 end;
 go
 create trigger trg_delete_member
@@ -216,7 +205,7 @@ INSERT INTO Topics VALUES
 -- INSERT REGISTERS
 -- =====================
 INSERT INTO Registers VALUES
-('R01', 'T01', 'TP01', GETDATE(), 'Approved'),
+('R01', 'T01', 'TP01', GETDATE(), 'Awaiting Approval'),
 ('R02', 'T02', 'TP02', GETDATE(), 'Awaiting Approval');
 
 -- =====================

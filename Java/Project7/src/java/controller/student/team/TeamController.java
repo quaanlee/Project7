@@ -64,9 +64,9 @@ public class TeamController extends HttpServlet {
         //processRequest(request, response);
         String email = (String) request.getSession().getAttribute("email");
         MembersInTeamDAO mitd = new MembersInTeamDAO();
+        request.setAttribute("email", email);
         if (mitd.checkMemberInTeam(email)) {
             // it's true that mean this member is on a team
-            request.setAttribute("check", "true");
             TeamDAO td = new TeamDAO();
             //
             Team team = td.getTeamByEmail(email);
@@ -88,11 +88,11 @@ public class TeamController extends HttpServlet {
             //
             boolean checkLeader = td.isLeader(email);
             request.setAttribute("checkLeader", checkLeader);
+            request.getRequestDispatcher("/views/role/student/teamm/Team.jsp").forward(request, response);
         } else {
-            request.setAttribute("check", "false");
+            request.getRequestDispatcher("/views/role/student/teamm/NoneTeam.jsp").forward(request, response);
         }
-        request.setAttribute("email", email);
-        request.getRequestDispatcher("/views/role/student/teamm/Team.jsp").forward(request, response);
+        
     }
 
     /**

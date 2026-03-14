@@ -16,7 +16,28 @@ public class TeamDAO extends DBContext {
 
     private PreparedStatement stm;
     private ResultSet rs;
+    
+    public Team getTeamByTeamId(String id) {
+        Team team = null;
+        try {
+            String strSQL = "select *"
+                    + "from Teams\n"
+                    + "where teamId = ?";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, id);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                String teamId = rs.getString("teamId");
+                String teamName = rs.getString("teamName");
+                String leaderId = rs.getString("leaderId");
 
+                team = new Team(teamId, teamName, leaderId);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return team;
+    }
     public Team getTeamByEmail(String email) {
         Team team = null;
         try {

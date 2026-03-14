@@ -72,14 +72,13 @@ public class RegisterController extends HttpServlet {
             // it's true that mean this member is on a team
             String topicId = request.getParameter("topicId");
             RegisterDAO resDao = new RegisterDAO();
-          
+
             request.setAttribute("topicId", topicId);
             //
-            if(!resDao.setRegisterStatus(team.getId(), "Awaiting Approval"))
-                resDao.addRegister(team.getId(), topicId);
-            //
-            TopicDAO topicDao = new TopicDAO();
-            topicDao.setTopicStatus(topicId);
+            if(!resDao.addRegister(team.getId(), topicId)){
+                resDao.setRegister(team.getId(), topicId);
+            }
+            
         } else {
             response.sendRedirect("team");
             return;

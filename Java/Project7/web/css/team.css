@@ -1,6 +1,7 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .menu{
@@ -32,7 +33,6 @@ ul{
 li{
     margin:10px 0;
 }
-
 li a{
     display:block;
     padding:10px;
@@ -66,6 +66,10 @@ li a:hover{
     background-color:#4F4746;
     color: whitesmoke;
 }
+.currentTag a {
+    background-color:#4F4746;
+    color: whitesmoke;
+}
 .profile {
     text-align: center;
     display: block;
@@ -80,7 +84,7 @@ img {
 }
 .right_side {
     margin-left: 243px;
-/*    width: 80%;*/
+    /*    width: 80%;*/
     display: flex;
     flex-direction: column;
 }
@@ -106,26 +110,29 @@ img {
     background-color: #4caf50;
     color: whitesmoke;
 }
+.search input[type="submit"]:hover{
+    background-color: #FE9A37;
+}
 table {
-  border-collapse: collapse;
-  width: 90%;
-  background-color: #fff;
-  margin: 50px 10px;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: #fff;
+    margin: 50px 10px;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
 }
 
 th {
-  background-color: #FF6600; /* FPT Orange */
-  color: white;
+    background-color: #FF6600; /* FPT Orange */
+    color: white;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 button {
     padding: 10px 20px;
@@ -141,6 +148,12 @@ a {
 .btn_add , .btn_leave{
     background-color: #4caf50;
 }
+.btn_add:hover, .btn_leave:hover{
+    background-color: #FE9A37;
+}
 .btn_delete {
     background-color: #ca3e14;
+}
+.btn_delete:hover{
+    background-color: #82181A;
 }

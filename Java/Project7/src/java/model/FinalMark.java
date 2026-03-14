@@ -10,9 +10,9 @@ package model;
  */
 public class FinalMark {
     private String studentId, teamId;
-    private double markPersonal, total;
+    private String markPersonal, total;
 
-    public FinalMark(String studentId, String teamId, double markPersonal, double total) {
+    public FinalMark(String studentId, String teamId, String markPersonal, String total) {
         this.studentId = studentId;
         this.teamId = teamId;
         this.markPersonal = markPersonal;
@@ -23,33 +23,19 @@ public class FinalMark {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-
     public String getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
-
-    public double getMarkPersonal() {
+    public String getMarkPersonal() {
         return markPersonal;
     }
 
-    public void setMarkPersonal(double markPersonal) {
-        this.markPersonal = markPersonal;
-    }
-
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
+    
     
     
 }

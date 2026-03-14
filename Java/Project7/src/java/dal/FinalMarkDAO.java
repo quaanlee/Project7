@@ -27,8 +27,8 @@ public class FinalMarkDAO extends DBContext {
             while (rs.next()) {
                 String stId = rs.getString("studentId");
                 String teamId = rs.getString("teamId");
-                double personal = rs.getDouble("markPersonal");
-                double total = rs.getDouble("total");
+                String personal = rs.getString("markPersonal");
+                String total = rs.getString("total");
                 System.out.println(personal);
                 fm = new FinalMark(stId, teamId, personal, total);
             }

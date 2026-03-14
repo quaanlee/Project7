@@ -17,9 +17,9 @@
         <div class="menu">
             <div class="profile">
                 <img src="images/icon.png" alt=""/><br>
-                <strong>${requestScope.student.name}</strong><br>
-                ${requestScope.student.id}<br>
-                ${requestScope.student.email}
+                <strong>${sessionScope.student.name}</strong><br>
+                ${sessionScope.student.id}<br>
+                ${sessionScope.student.email}
             </div>
             <a href="login" class="logo">Home</a>
 

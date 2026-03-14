@@ -1,0 +1,118 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package controller.student.register;
+
+import dal.MembersInTeamDAO;
+import dal.RegisterDAO;
+import dal.TeamDAO;
+import dal.TopicDAO;
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import model.Team;
+
+/**
+ *
+ * @author LENOVO
+ */
+public class FindTopic extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet FindTopic</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet FindTopic at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //processRequest(request, response);
+        String email = (String) request.getSession().getAttribute("email");
+        MembersInTeamDAO mitd = new MembersInTeamDAO();
+        if (mitd.checkMemberInTeam(email)) {
+            // it's true that mean this member is on a team
+            TeamDAO td = new TeamDAO();
+            Team team = td.getTeamByEmail(email);
+            RegisterDAO rd = new RegisterDAO();
+            if (rd.checkRegistedTeam(team.getId())) {
+                if (rd.checkRegisterStatus(team.getId(), "Approved")) {
+                    request.setAttribute("Approved", 1);
+                } else if (rd.checkRegisterStatus(team.getId(), "Awaiting Approval")) {
+                    request.setAttribute("Awaiting Approval", 1);
+                } else if (rd.checkRegisterStatus(team.getId(), "Rejected")) {
+                    request.setAttribute("Rejected", 1);
+                }
+            }
+            RegisterDAO resDao = new RegisterDAO();
+            if (resDao.getTopicByTeamId(team.getId()) != null) {
+                System.out.println(resDao.getTopicByTeamId(team.getId()).getTopicId());
+                request.setAttribute("topicId", resDao.getTopicByTeamId(team.getId()).getTopicId());
+            }
+
+        }
+        String id = request.getParameter("topicId");
+        request.setAttribute("input", id);
+        request.setAttribute("topicList", new TopicDAO().getTopicListByID(id));
+        request.getRequestDispatcher("/views/role/student/register/ListTopic.jsp").forward(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}

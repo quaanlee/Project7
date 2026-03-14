@@ -34,4 +34,23 @@ public class TeacherDAO extends DBContext{
         }
         return teacher;
     }
+    public Teacher getTeacherByEmail(String email){
+        Teacher teacher = null;
+        try {
+            String strSQL = "select * from Teachers where email=?";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, email);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                String tId = rs.getString("teacherId");
+                String tName = rs.getString("teacherName");
+       
+                String tEmail = rs.getString("email");
+                teacher = new Teacher(tId, tName, tEmail);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return teacher;
+    }
 }

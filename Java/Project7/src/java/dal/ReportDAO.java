@@ -46,6 +46,62 @@ public class ReportDAO extends DBContext {
         return report;
     }
 
+    public List getSubmittedList(String teacherId, String icategory) {
+        List<Report> rL = new ArrayList<>();
+        try {
+            String strSQL = "select  [teamId]\n"
+                    + "      ,[category]\n"
+                    + "      ,[filePath]\n"
+                    + "      ,cast([submitDate] as date) as submitDate\n"
+                    + "      ,cast([deadline] as date) as deadline from Reports r \n"
+                    + "where r.teamId in (select r.teamId from Registers r where r.registerStatus='Approved' \n"
+                    + "  and r.topicId in (select t.topicId from Topics t where t.teacherId = ?))\n"
+                    + "and r.category = ? and r.filePath is not null";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, teacherId);
+            stm.setString(2, icategory);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                String teamId = rs.getString("teamId");
+                String category = rs.getString("category");
+                String filePath = rs.getString("filePath");
+                String submitDate = rs.getString("submitDate");
+                String deadline = rs.getString("deadline");
+                rL.add(new Report(teamId, category, filePath, submitDate, deadline));
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rL;
+    }
+
+    public List getNotYetSubmittedList(String teacherId, String icategory) {
+        List<Report> rL = new ArrayList<>();
+        try {
+            String strSQL = "select * from Reports r \n"
+                    + "where r.teamId in (select r.teamId from Registers r where r.registerStatus='Approved' \n"
+                    + "  and r.topicId in (select t.topicId from Topics t where t.teacherId = ?))\n"
+                    + "and r.category = ? and r.filePath is null";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, teacherId);
+            stm.setString(2, icategory);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                String teamId = rs.getString("teamId");
+                String category = rs.getString("category");
+                String filePath = rs.getString("filePath");
+                String submitDate = rs.getString("submitDate");
+                String deadline = rs.getString("deadline");
+                rL.add(new Report(teamId, category, filePath, submitDate, deadline));
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rL;
+    }
+
     public boolean submit(String teamID, String item, String filePath) {
         try {
             String strSQL = "update Reports set filePath = ? , submitDate = getdate()"

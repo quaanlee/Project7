@@ -18,6 +18,57 @@ public class RegisterDAO extends DBContext {
     private PreparedStatement stm;
     private ResultSet rs;
     
+    public Register getRegisterByTeamId(String id) {
+        Register r = null;
+        try {
+            String strSQL = "select r.*"
+                    + "from Registers r\n"
+                    + "where teamId = ?\n";
+                   
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, id);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                String registerId = rs.getString("registerId");
+                String teamId = rs.getString("teamId");
+                String topicId = rs.getString("topicId");
+                String registerDate = rs.getString("registerDate");
+                String status = rs.getString("registerStatus");
+                
+                r = new Register(registerId, teamId, topicId, registerDate, status);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+    public List getRegisterList(String teacherId) {
+        List<Register> list = new ArrayList<>();
+        try {
+            String strSQL = "select r.registerId, r.teamId, r.topicId,"
+                    + " cast(r.registerDate as date) as registerDate, r.registerStatus\n"
+                    + "from Registers r\n"
+                    + "inner join (SELECT *\n"
+                    + "  FROM [Topics] t\n"
+                    + "  where t.teacherId = ?) t on t.topicId = r.topicId";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, teacherId);
+            rs = stm.executeQuery();
+            while(rs.next()){
+                String registerId = rs.getString("registerId");
+                String teamId = rs.getString("teamId");
+                String topicId = rs.getString("topicId");
+                String registerDate = rs.getString("registerDate");
+                String status = rs.getString("registerStatus");
+                
+                list.add(new Register(registerId, teamId, topicId, registerDate, status));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+
     public boolean setRegisterStatus(String teamId, String status) {
         Topic topic = null;
         try {
@@ -35,6 +86,26 @@ public class RegisterDAO extends DBContext {
         }
         return false;
     }
+    
+    public boolean setRegister(String teamId, String topicId) {
+        Topic topic = null;
+        try {
+            String strSQL = "update Registers\n"
+                    + " set registerStatus = 'Awaiting Approval', "
+                    + "topicId = ?\n"
+                    + "  where teamId = ?";
+            stm = connection.prepareStatement(strSQL);
+            stm.setString(1, topicId);
+            stm.setString(2, teamId);
+            if (stm.executeUpdate() != 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
     public boolean deleteRegisterByTeamId(String teamId) {
         Topic topic = null;
         try {
@@ -148,23 +219,19 @@ public class RegisterDAO extends DBContext {
     }
 
     public boolean checkFull(String topicId) {
-        int num = 0;
         try {
-            String strSQL = "SELECT count(*) as number\n"
+            String strSQL = "SELECT *\n"
                     + "  FROM [Registers]\n"
                     + "  where topicId=? and registerStatus='Approved'";
             stm = connection.prepareStatement(strSQL);
             stm.setString(1, topicId);
             rs = stm.executeQuery();
             if (rs.next()) {
-                num = rs.getInt("number");
+                return true;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        if (num <= 5) {
-            return false;
-        }
-        return true;
+        return false;
     }
 }

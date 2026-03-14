@@ -24,8 +24,10 @@ body{
     backdrop-filter: blur(2px); /*lam mo nen*/
     color: white;
 }
-a {
-    color: white;
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 input[type="text"]{
     padding: 4px;
@@ -33,13 +35,6 @@ input[type="text"]{
     border: none;
     width: 200px;
 }
-input[type="submit"]{
-    padding: 5px 10px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    margin-top: 10px;
-}
+
 
 

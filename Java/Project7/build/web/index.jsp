@@ -18,6 +18,18 @@
                 border: none;
                 width: 200px;
             }
+            input[type="submit"]{
+                padding: 5px 10px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 7px;
+                display: block;
+                margin: 10px auto;
+            }
+            input[type="submit"]:hover {
+                background-color: #FE9A37;
+            }
         </style>
     </head>
     <body>
@@ -43,12 +55,9 @@
                     </tr>
                     <%
                         }
-                    %>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="Login"></td>
-                    </tr>
+                    %>                              
                 </table>
+                <input type="submit" value="Login">
             </form>
         </div>
     </body>

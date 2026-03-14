@@ -10,9 +10,9 @@ package model;
  */
 public class MarkTeam {
     private String teamId;
-    private double proposal, report1, report2, finalReport, total;
+    private String proposal, report1, report2, finalReport, total;
 
-    public MarkTeam(String teamId, double proposal, double report1, double report2, double finalReport, double total) {
+    public MarkTeam(String teamId, String proposal, String report1, String report2, String finalReport, String total) {
         this.teamId = teamId;
         this.proposal = proposal;
         this.report1 = report1;
@@ -25,49 +25,26 @@ public class MarkTeam {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
-
-    public double getProposal() {
+    public String getProposal() {
         return proposal;
     }
 
-    public void setProposal(double proposal) {
-        this.proposal = proposal;
-    }
-
-    public double getReport1() {
+    public String getReport1() {
         return report1;
     }
 
-    public void setReport1(double report1) {
-        this.report1 = report1;
-    }
-
-    public double getReport2() {
+    public String getReport2() {
         return report2;
     }
 
-    public void setReport2(double report2) {
-        this.report2 = report2;
-    }
-
-    public double getFinalReport() {
+    public String getFinalReport() {
         return finalReport;
     }
 
-    public void setFinalReport(double finalReport) {
-        this.finalReport = finalReport;
-    }
-
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
     
     
 }

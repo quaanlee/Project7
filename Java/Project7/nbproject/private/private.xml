@@ -3,61 +3,103 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/RegisterDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/monitor_Student/submitted.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/registerList.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/AccountDAO.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/TeacherView.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/TopicListController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/test.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/topic_management/CreateTopic.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/NoneTeam.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/approve_register/RegisterDetail.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/ListTopic.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/approve_register/Reject.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/markReport.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Student.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Person.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/Team.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/mark/MarkReport.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/LeaveTeamController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/index.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TeamDAO.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/assignment/AssignmentView.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/LoginController.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/FinalMarkDAO.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/MarkTeam.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/AdminView.jsp</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/student.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/team.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/RegisterController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/mark/MarkReport.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/login.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/assignment/Submit.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/AddMemberController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/FinalMark.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/approve_register/Cancel.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/CreateTeamController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/MembersInTeamDAO.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TeacherDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/topic_management/EditTopic.jsp</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/StudentView.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TopicDAO.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Account.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/TeamController.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/ComfimeDeleteMember.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/CancelController.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/MarkTeamDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/TeacherView.jsp</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/assignment/AssignmentController.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Topic.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/images/fptu.jpg</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/CreateTeam.jsp</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/FindStudentController.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/ComfimeLeaveTeam.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/register/Register.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/DBContext.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Report.java</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/StudentDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/topic_management/MyTopic.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/ReportMark.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/approve_register/RegistersList.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/allTopic.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/deleteTopic.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/topic_management/AllTopic.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/topic_management/EditTopic.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/ComfimeCreateTeam.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/final_report.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Team.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/mark.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/images/fpt_banner.jpg</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/assignment/SubmitView.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/ListTopic.jsp</file>
-            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/RoleDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/registerDetail.css</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/ReportDAO.java</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/team/DeleteMemberController.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/monitor_Student/monitorStudent.jsp</file>
             <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Teacher.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/approve_registration/DetailTeam.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/remark.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/register/ListTopic.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/RegisterDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/report1.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/noneTeam.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/TopicListController.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/submitted.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/notYetSubmitted.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/editTopic.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/test.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/teamm/Team.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/mark/MarkReport.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/monitor_Student/mark.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/index.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TeamDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/assignment/AssignmentView.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/LoginController.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Register.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/MarkTeam.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/approve_registration/RegisterList.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/report2.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/mark/MarkReport.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/topic_management/MyTopic.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/login.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/topic_management/DeleteTopic.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/FinalMark.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/topic_management/CreateTopic.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/teacher/createTopic.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/MembersInTeamDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TeacherDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/TopicDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Account.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/CancelController.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/MarkTeamDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/assignmentView.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/monitor_Student/proposal.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/topic_management/TopicManagement.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/teacher/approve_register/Accept.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/DBContext.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/monitor_Student/notYetSubmitted.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/model/Report.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/StudentDAO.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/controller/student/register/FindTopic.java</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/css/submitView.css</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/teacher/topic_management/DeleteTopic.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/web/views/role/student/assignment/SubmitView.jsp</file>
+            <file>file:/D:/Đề%20tài%207%20Quản%20lý%20đăng%20ký%20&amp;%20thực%20hiện%20đồ%20án%20tốt%20nghiệp/Java/Project7/src/java/dal/RoleDAO.java</file>
         </group>
     </open-files>
 </project-private>

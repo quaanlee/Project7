@@ -14,19 +14,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/team.css"/>
+        
     </head>
     <body>
         <div class="menu">
             <div class="profile">
                 <img src="images/icon.png" alt=""/><br>
-                <strong>${requestScope.student.name}</strong><br>
-                ${requestScope.student.id}<br>
-                ${requestScope.student.email}
+                <strong>${sessionScope.student.name}</strong><br>
+                ${sessionScope.student.id}<br>
+                ${sessionScope.student.email}
             </div>
             <a href="login" class="logo">Home</a>
 
             <ul>
-                <li><a href="team">Team</a></li>
+                <li class="currentTag"><a href="team">Team</a></li>
                 <li><a href="topiclist">List Topic & Register</a></li>
                 <li><a href="assignmentC">Assignment</a></li>
                 <li><a href="markReport">Mark Report</a></li>
@@ -44,17 +45,8 @@
                 <img src="images/fpt_banner.jpg" alt="alt"/>
             </div>
             <div class="content">
+                
                 <%
-                    String check = (String)request.getAttribute("check");
-                    if(check.equals("false")){
-                %>
-                <div>
-                    <h2>You haven't joined any team yet</h2>     
-                    <a href="createTeam"><button type="submit">Create team</button></a>
-                    <a href="login">Back</a>
-                </div>
-                <%
-                    } else {
                         boolean isLeader = (boolean)request.getAttribute("checkLeader");
                         Team team = (Team)request.getAttribute("team");
                         List<Student> memberList = (List<Student>)request.getAttribute("memberList");
@@ -76,7 +68,7 @@
                     <input type="text" name="stId" id="stId" value=<%=(inputFind != null) ? inputFind : ""%>>
                     <input type="submit" value="Find">
                 </form>
-                    <%if(stList != null){%>
+                <%if(stList != null){%>
                 <table>
                     <tr>
 
@@ -100,10 +92,10 @@
                         <td>
                             <%
                                 if(!checkInTeam){
-                                %>
-                                <a href="addMember?stId=<%=st.getId()%>&teamId=<%=team.getId()%>"><button class="btn_add">Add</button></a>
-                                <%
-                                }
+                            %>
+                            <a href="addMember?stId=<%=st.getId()%>&teamId=<%=team.getId()%>"><button class="btn_add">Add</button></a>
+                            <%
+                            }
                             %>
                         </td>
                     </tr>
@@ -121,9 +113,9 @@
                         <th>Class</th>
                         <th>Major</th>
                         <th>Role</th>
-                        <%if(isLeader){%>
+                            <%if(isLeader){%>
                         <th>Action</th>
-                        <%}%>
+                            <%}%>
                     </tr>
                     <%
                         TeamDAO td = new TeamDAO();
@@ -142,10 +134,10 @@
                         <td>
                             <%
                                 if(!checkLeader){
-                                %>
-                                <a href="deleteMember?id=<%=member.getId()%>"><button class="btn_delete">Delete</button></a>
-                                <%
-                                }
+                            %>
+                            <a href="deleteMember?id=<%=member.getId()%>"><button class="btn_delete">Delete</button></a>
+                            <%
+                            }
                             %>
                         </td>
                         <%}%>
@@ -155,12 +147,9 @@
                         }
                     %>
                 </table>  
-                    <%if(!isLeader){%>
-                    <a href="leaveTeam"><button class="btn_leave">Leave team</button></a>
-                    <%}%>
-                <%    
-                    }
-                %>
+                <%if(!isLeader){%>
+                <a href="leaveTeam"><button class="btn_leave">Leave team</button></a>
+                <%}%>
             </div>
         </div>
 

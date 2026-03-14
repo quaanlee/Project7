@@ -7,6 +7,7 @@ package controller;
 import dal.AccountDAO;
 import dal.RoleDAO;
 import dal.StudentDAO;
+import dal.TeacherDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -75,7 +76,7 @@ public class LoginController extends HttpServlet {
             if (roleName.equals("Student")) {
                 request.getRequestDispatcher("views/role/student/StudentView.jsp").forward(request, response);
             } else if (roleName.equals("Teacher")) {
-                //...
+                request.getRequestDispatcher("views/role/teacher/TeacherView.jsp").forward(request, response);
             } else if (roleName.equals("Admin")) {
                 //...
             } else {
@@ -106,16 +107,20 @@ public class LoginController extends HttpServlet {
             if (!password.equals(account.getPassword())) {
                 request.setAttribute("notification", "Password is wrong, try again");
             } else {
-                StudentDAO stDao = new StudentDAO();
-                request.setAttribute("student", stDao.getStudentByEmail(email));
+
                 RoleDAO roleDao = new RoleDAO();
                 Role role = roleDao.getRoleById(account.getRoleId());
                 String roleName = role.getRoleName();
+                request.getSession().setAttribute("email", email);
                 if (roleName.equals("Student")) {
-                    request.getSession().setAttribute("email", email);
+                    StudentDAO stDao = new StudentDAO();
+                    request.setAttribute("student", stDao.getStudentByEmail(email));
+                    request.getSession().setAttribute("student", stDao.getStudentByEmail(email));
                     request.getRequestDispatcher("views/role/student/StudentView.jsp").forward(request, response);
                 } else if (roleName.equals("Teacher")) {
-                    //...
+                    TeacherDAO teaDao = new TeacherDAO();
+                    request.getSession().setAttribute("teacher", teaDao.getTeacherByEmail(email));
+                    request.getRequestDispatcher("views/role/teacher/TeacherView.jsp").forward(request, response);
                 } else if (roleName.equals("Admin")) {
                     //...
                 } else {

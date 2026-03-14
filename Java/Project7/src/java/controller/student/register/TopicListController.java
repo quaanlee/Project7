@@ -94,7 +94,7 @@ public class TopicListController extends HttpServlet {
         TopicDAO topicDao = new TopicDAO();
         topicList = topicDao.getTopicList();
         request.setAttribute("topicList", topicList);
-        request.getRequestDispatcher("/views/ListTopic.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/role/student/register/ListTopic.jsp").forward(request, response);
     }
 
     /**
